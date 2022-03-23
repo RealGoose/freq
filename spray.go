@@ -32,8 +32,8 @@ func main(){
                 go func(){
                         defer wg.Done()
                         for domain := range jobs {
-
-                                req, err := http.NewRequest("GET", domain, nil)
+                                
+                                req, err := http.NewRequest("GET", domain+"/robots.txt", nil)
                                 req.Header.Set("User-Agent", "TESTuserAgent")
                                 resp, err := client.Do(req)
                                 //resp, err := http.Get(domain)
@@ -47,10 +47,9 @@ func main(){
                                 fmt.Println(err)
                                 }
                                 sb := string(body)
-                                check_result := strings.Contains(sb , "alert(1)")
-                                // fmt.Println(check_result)
-                                if check_result != false {
-                                        fmt.Println(string(colorRed),"Vulnerable To XSS:", domain,string(colorReset))
+                                if resp.StatusCode >= 200 && resp.StatusCode <= 299{
+                                        // fmt.Println(check_result)
+                                        fmt.Println(string(colorRed), "RESULT:", domain, string(colorReset))
                                 }
 
                         }
