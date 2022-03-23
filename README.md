@@ -1,12 +1,6 @@
 # frequest
-This is go CLI tool for send fast Multiple  get HTTP request.
+This is a CLI tool written in go to send fast get HTTP requests
 
 # How to Use?
-you can use this tool for findings xss and sql injection vulnerablity from multi URL.
+you can use this tool for findings xss and sql injection vulnerablity from multiple URLs.
 
-# How to Install?
-go get -u https://github.com/takshal/freq
-
-
-# smart Use
-Using qsreplace you can add your xss payload in every perementer then you can use this tool to find vulnerablity.
